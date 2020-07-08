@@ -59,6 +59,9 @@ inputs:
   lfs:
     description: 'Whether to download Git-LFS files'
     default: false
+  preventRemoveFolder:
+    description: 'Prevent checkout to delete folder'
+    default: true
   submodules:
     description: >
       Whether to checkout submodules: `true` to checkout submodules or `recursive` to
