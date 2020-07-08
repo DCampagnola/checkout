@@ -11,7 +11,8 @@ export async function prepareExistingDirectory(
   repositoryPath: string,
   repositoryUrl: string,
   clean: boolean,
-  ref: string
+  ref: string,
+  preventRemoveFolder: boolean
 ): Promise<void> {
   assert.ok(repositoryPath, 'Expected repositoryPath to be defined')
   assert.ok(repositoryUrl, 'Expected repositoryUrl to be defined')
@@ -106,12 +107,14 @@ export async function prepareExistingDirectory(
     }
   }
 
-  if (remove) {
+  if (remove && !preventRemoveFolder) {
     // Delete the contents of the directory. Don't delete the directory itself
     // since it might be the current working directory.
     core.info(`Deleting the contents of '${repositoryPath}'`)
     for (const file of await fs.promises.readdir(repositoryPath)) {
       await io.rmRF(path.join(repositoryPath, file))
     }
+  } else {
+    core.info('Prevented deleting folder')
   }
 }

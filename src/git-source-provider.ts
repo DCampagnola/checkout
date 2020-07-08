@@ -43,7 +43,8 @@ export async function getSource(settings: IGitSourceSettings): Promise<void> {
       settings.repositoryPath,
       repositoryUrl,
       settings.clean,
-      settings.ref
+      settings.ref,
+      settings.preventRemoveFolder
     )
   }
 
