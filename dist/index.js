@@ -14596,6 +14596,9 @@ function getInputs() {
     // Persist credentials
     result.persistCredentials =
         (core.getInput('persist-credentials') || 'false').toUpperCase() === 'TRUE';
+    // Prevent remove folder
+    result.preventRemoveFolder =
+        (core.getInput('persist-preventRemoveFolder') || 'true').toUpperCase() === 'TRUE';
     return result;
 }
 exports.getInputs = getInputs;

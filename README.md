@@ -97,6 +97,10 @@ Refer [here](https://github.com/actions/checkout/blob/v1/README.md) for previous
     # Default: false
     lfs: ''
 
+    # Prevent checkout to delete folder
+    # Default: true
+    preventRemoveFolder: ''
+
     # Whether to checkout submodules: `true` to checkout submodules or `recursive` to
     # recursively checkout submodules.
     #
